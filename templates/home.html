@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت حضور بچه‌های صدیق</title>
+    <style>
+        body {
+            background-color: rgb(37, 168, 37);
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        table {
+            margin: auto;
+            width: 80%;
+            background-color: rgb(87, 90, 87);
+            border-collapse: collapse;
+            border-radius: 8px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid white;
+        }
+        th {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        input[type='submit'] {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        button {
+            background-color: rgb(255, 0, 17);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ثبت حضور بچه‌های صدیق</h1>
+    <form method="post">
+        <button><a href="/ " style="color: white; text-decoration: underline;">بازگشت</a></button>
+        {% csrf_token %}
+        {{ formset.management_form }}
+        <div>
+            <label>تاریخ :</label>
+            {{ type.forms_date }}
+            <label>نوع حضور:</label>
+            {{ type.type_choice }}
+            
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>حضور</th>
+                    <th>نام</th>
+                    <th>گروه</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member, form in pairs %}
+                <tr>
+                    <td>{{ form.present }}</td>
+                    <td>{{ member.member_name }}</td>
+                    <td>{{ member.member_sedigh }}</td>
+                    {{ form.member }}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="ثبت حضور">
+        <br/>
+                                        
+        
+    </form>
+</body>
+</html>
