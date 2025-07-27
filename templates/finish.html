@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت حضور بچه‌های صدیق</title>
+    <style>
+        body {
+            background-color: rgb(37, 168, 37);
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        table {
+            margin: auto;
+            width: 80%;
+            background-color: rgb(87, 90, 87);
+            border-collapse: collapse;
+            border-radius: 8px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid white;
+        }
+        th {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        input[type='submit'] {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        button {
+            background-color: rgb(17, 0, 255);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{login.as_p}}
+    
+    <input type="submit" value='ورود'>
+    {% csrf_token %}
+</form>
+</body>
+</html>
